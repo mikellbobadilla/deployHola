@@ -1,0 +1,41 @@
+package com.deploy.deployHola.controllers;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+
+  @GetMapping("/hello")
+  public String hello(){
+    return "Hola como estas desde este deploy";
+  }
+
+  @GetMapping({"/index", "/"})
+  public String index(){
+    return """
+            <!DOCTYPE html>
+            <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>Document</title>
+              </head>
+              <body>
+                <h1>Este es un titulo H1</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsam
+                  officiis non. Inventore saepe dolorem odio libero veritatis cumque
+                  cupiditate assumenda voluptate, earum et ipsa facere! Nostrum quos
+                  consequuntur omnis?
+                </p>
+                <input type="text" placeholder="Ingrese lo que usted quiera">
+                <button type="button">Enviar</button>
+              </body>
+            </html>      
+            """;
+
+  }
+
+}
